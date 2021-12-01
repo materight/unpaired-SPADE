@@ -43,6 +43,7 @@ class BaseADE20KSegmenter(BaseNetwork):
     def forward(self, data, normalize=False):
         if normalize:
             data = self.normalization(data)
+        #self.segmentation_module.use_softmax = self.training
         scores = self.segmentation_module({'img_data': data}, segSize=data.shape[2:])
         if isinstance(scores, tuple):
             scores, _ = scores
