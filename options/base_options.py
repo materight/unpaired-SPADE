@@ -79,6 +79,9 @@ class BaseOptions():
         self.initialized = True
         return parser
 
+    def set_defaults():
+        pass
+
     def gather_options(self):
         # initialize parser with basic options
         if not self.initialized:
@@ -105,6 +108,8 @@ class BaseOptions():
         # The previous default options will be overwritten
         if opt.load_from_opt_file:
             parser = self.update_options_from_file(parser, opt)
+
+        self.set_defaults(parser)
 
         opt = parser.parse_args()
         self.parser = parser

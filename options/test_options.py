@@ -14,10 +14,12 @@ class TestOptions(BaseOptions):
         parser.add_argument('--how_many', type=int, default=float("inf"), help='how many test images to run')
         parser.add_argument('--evaluate', action='store_true', help='compute also FID, mIoU and accuracy over generated images')
 
+        self.isTrain = False
+        return parser
+
+    def set_defaults(self, parser):
         parser.set_defaults(preprocess_mode='scale_width_and_crop', crop_size=256, load_size=256, display_winsize=256)
         parser.set_defaults(serial_batches=True)
         parser.set_defaults(no_flip=True)
         parser.set_defaults(phase='test')
         parser.set_defaults(pretrained_seg=True)
-        self.isTrain = False
-        return parser

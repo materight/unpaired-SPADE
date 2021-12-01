@@ -14,6 +14,7 @@ try:
 except ImportError:
     from io import BytesIO         # Python 3.x
 
+
 class Visualizer():
     def __init__(self, opt):
         self.opt = opt
@@ -41,10 +42,10 @@ class Visualizer():
     # |visuals|: dictionary of images to display or save
     def display_current_results(self, visuals, epoch, step):
 
-        ## convert tensors to numpy arrays
+        # convert tensors to numpy arrays
         visuals = self.convert_visuals_to_numpy(visuals)
-                
-        if self.tf_log: # show images in tensorboard output
+
+        if self.tf_log:  # show images in tensorboard output
             img_summaries = []
             for label, image_numpy in visuals.items():
                 if image_numpy is not None:
@@ -65,7 +66,7 @@ class Visualizer():
             summary = self.tf.Summary(value=img_summaries)
             self.writer.add_summary(summary, step)
 
-        if self.use_html: # save images to a html file
+        if self.use_html:  # save images to a html file
             for label, image_numpy in visuals.items():
                 if isinstance(image_numpy, list):
                     for i in range(len(image_numpy)):
@@ -74,7 +75,7 @@ class Visualizer():
                 else:
                     img_path = os.path.join(self.img_dir, 'epoch%.3d_iter%.3d_%s.png' % (epoch, step, label))
                     if len(image_numpy.shape) >= 4:
-                        image_numpy = image_numpy[0]                    
+                        image_numpy = image_numpy[0]
                     util.save_image(image_numpy, img_path)
 
             # update website
@@ -117,8 +118,8 @@ class Visualizer():
     def print_current_errors(self, epoch, i, errors, t):
         message = '(epoch: %d, iters: %d, time: %.3f) ' % (epoch, i, t)
         for k, v in errors.items():
-            #print(v)
-            #if v != 0:
+            # print(v)
+            # if v != 0:
             v = v.mean().float()
             message += '%s: %.3f ' % (k, v)
 
@@ -130,7 +131,7 @@ class Visualizer():
         for key, t in visuals.items():
             if t is not None:
                 tile = self.opt.batchSize > 8
-                if key in ['input_label', 'reconstructed_semantic', 'segmentation_evaluation']:
+                if key in ['input_label', 'external_segmenter_from_generated', 'internal_segmenter_from_orginal', 'internal_segmenter_from_generated']:
                     t = util.tensor2label(t, self.opt.label_nc + 2, tile=tile)
                 else:
                     t = util.tensor2im(t, tile=tile)
@@ -138,9 +139,9 @@ class Visualizer():
         return visuals
 
     # save image to the disk
-    def save_images(self, webpage, visuals, image_path):        
-        visuals = self.convert_visuals_to_numpy(visuals)        
-        
+    def save_images(self, webpage, visuals, image_path):
+        visuals = self.convert_visuals_to_numpy(visuals)
+
         image_dir = webpage.get_image_dir()
         short_path = ntpath.basename(image_path[0])
         name = os.path.splitext(short_path)[0]
