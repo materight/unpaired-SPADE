@@ -1,0 +1,13 @@
+checkpoints/
+checkpoints_segmentation/
+results/
+pretrained/
+.idea/
+datasets/ADEChallengeData2016
+datasets/cityscapes
+.DS_Store
+*.tar.gz
+*.zip
+*.pkl
+*.pyc
+__pycache__
