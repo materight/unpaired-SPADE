@@ -9,7 +9,7 @@ TODO
 ### Model Architecture
 
 <div align="center">
-  <img src="docs/images/new_model.png" height="280"/>
+  <img src="docs/images/new_model.png" height="300"/>
 </div>
 TODO
 
@@ -42,7 +42,7 @@ The ADE20K dataset used to test the model can be downloaded [here](http://data.c
 
 Once the dataset is ready, the result images can be generated using a pre-trained model:
 
-1. Download the zip of the pre-trained models from [here (TODO)]() and unzip them inside the `checkpoints/` directory.
+1. Download the zip of the pre-trained models from [here](https://drive.google.com/uc?id=1ocEiHW1CDFK22LIwxCogX32RYomGWztH) and unzip them inside the `checkpoints/` directory.
 
 2. Generate images using a pre-trained model.
     ```bash
@@ -69,8 +69,15 @@ You can use `python train.py --help` to see all the available options.
 
 
 ## Available Options
-Besides the options added in the original [SPADE](https://github.com/NVlabs/SPADE.git) repository, new options have been added:
-- TODO
+
+Besides the options from the original [SPADE](https://github.com/NVlabs/SPADE.git) repository, new options have been added:
+- `--evaluate`: use with `test.py` to compute also FID, mIoU and accuracy scores over the generated images.
+- `--use_seg`: enable unpaired training with a cycle-consistency loss and a semantic segmentation model.
+- `--netS`: select the model to use for the semantic segmentation model.
+- `--pretrained_seg`: use pretrained weights for the semantic segmentation model.
+- `--use_input_seg`: use also the paired semantic label to further train the semantic segmentation network.
+- `--lambda_seg`: lambda parameter to re-weight the semantic segmentation loss.
+- `--gamma_seg`: gamma parameter for the semantic segmentation focal loss.
 
 
 ## Code Structure
