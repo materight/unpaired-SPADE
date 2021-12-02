@@ -79,7 +79,7 @@ class BaseOptions():
         self.initialized = True
         return parser
 
-    def set_defaults():
+    def set_defaults(self, parser):
         pass
 
     def gather_options(self):
