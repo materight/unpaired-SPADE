@@ -66,4 +66,4 @@ def define_E(opt):
 
 def define_S(opt):
     netS_cls = find_network_using_name(opt.netS, 'segmenter')
-    return create_network(netS_cls, opt, opt.pretrained_seg)
+    return create_network(netS_cls, opt, True)
