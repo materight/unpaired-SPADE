@@ -103,8 +103,7 @@ if opt.evaluate:
     original_dataroot = f'{opt.dataroot}/images/validation'
     generated_dataroot = f'{results_dir}/images/synthesized_image'
     device = 'cpu' if opt.gpu_ids[0] == -1 else f'cuda:{opt.gpu_ids[0]}'
-    process = subprocess.run(['python', '-m', 'pytorch_fid', original_dataroot, generated_dataroot, '--num-workers',
-                             str(os.cpu_count()), '--device', str(device), '--batch-size', '1'], stdout=subprocess.PIPE)
+    process = subprocess.run(['python', '-m', 'pytorch_fid', original_dataroot, generated_dataroot, '--num-workers', opt.nThreads, '--device', str(device), '--batch-size', '1'], stdout=subprocess.PIPE)
     fid = float(re.search('FID:  ([\d.]*)', process.stdout.decode('utf8').strip()).group(1))
 
     # Print and save results in file
