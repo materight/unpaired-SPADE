@@ -131,7 +131,7 @@ class SegLoss(nn.Module):
         weights = weights[:, :, :, :-1]  # Ignore unknown label
         weights = weights.sum(dim=[0, 1, 2]) + 1
         weights = (torch.tensor(target.shape).prod()) / weights  # Inverse class frequency
-        #prediction = (1 - torch.exp(prediction))**self.opt.gamma_seg * prediction
-        prediction = torch.log(prediction)
+        prediction = (1 - prediction)**self.opt.gamma_seg * torch.log(prediction) # Focal loss
+        #prediction = torch.log(prediction)
         loss = F.nll_loss(prediction, target, weight=weights, ignore_index=self.opt.label_nc)
         return loss
