@@ -52,7 +52,7 @@ for epoch in iter_counter.training_epochs():
         if iter_counter.needs_displaying():
             visuals = OrderedDict([('input_label', data_i['label']),
                                    ('synthesized_image', trainer.get_latest_generated()),
-                                   ('reconstructed_semantic', trainer.get_latest_segmentation()),
+                                   ('internal_segmenter_from_generated', trainer.get_latest_segmentation()),
                                    ('real_image', data_i['image'])])
             visualizer.display_current_results(visuals, epoch, iter_counter.total_steps_so_far)
 
