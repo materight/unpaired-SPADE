@@ -127,11 +127,13 @@ class SegLoss(nn.Module):
         self.opt = opt
 
     def forward(self, prediction, target):
-        weights = F.one_hot(target, num_classes=self.opt.label_nc+1)
-        weights = weights[:, :, :, :-1]  # Ignore unknown label
-        weights = weights.sum(dim=[0, 1, 2]) + 1
-        weights = (torch.tensor(target.shape).prod()) / weights  # Inverse class frequency
-        prediction = (1 - prediction)**self.opt.gamma_seg * torch.log(prediction)  # Focal loss
-        #prediction = torch.log(prediction)
+        counts = F.one_hot(target, num_classes=self.opt.label_nc+1)
+        counts = counts[:, :, :, :-1]  # Ignore unknown label
+        counts = counts.sum(dim=[0, 1, 2]) + 1
+        # weights = (torch.tensor(target.shape).prod()) / (counts + 1)  # Inverse class frequency
+        beta = 0.99
+        weights = (1 - beta) / (1 - (beta**counts))
+        # prediction = (1 - prediction)**self.opt.gamma_seg * torch.log(prediction)  # Focal loss
+        prediction = torch.log(prediction)
         loss = F.nll_loss(prediction, target, weight=weights, ignore_index=self.opt.label_nc)
         return loss
