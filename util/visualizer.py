@@ -72,7 +72,7 @@ class Visualizer():
                     for i in range(len(image_numpy)):
                         img_path = os.path.join(self.img_dir, 'epoch%.3d_iter%.3d_%s_%d.png' % (epoch, step, label, i))
                         util.save_image(image_numpy[i], img_path)
-                else:
+                elif image_numpy is not None:
                     img_path = os.path.join(self.img_dir, 'epoch%.3d_iter%.3d_%s.png' % (epoch, step, label))
                     if len(image_numpy.shape) >= 4:
                         image_numpy = image_numpy[0]
