@@ -75,6 +75,7 @@ Besides the options from the original [SPADE](https://github.com/NVlabs/SPADE.gi
 - `--pretrained_seg`: use pretrained weights for the semantic segmentation model.
 - `--use_input_seg`: use also the paired semantic label to further train the semantic segmentation network.
 - `--lambda_seg`: lambda parameter to re-weight the semantic segmentation loss.
+- `--beta_seg`: beta value for the class-balanced loss for semantic segmentation.
 - `--gamma_seg`: gamma parameter for the semantic segmentation focal loss.
 
 
