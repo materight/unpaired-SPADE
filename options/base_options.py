@@ -73,7 +73,7 @@ class BaseOptions():
         parser.add_argument('--netS', type=str, default='upernet18', help='selects model to use for netS (upernet18 | upernet50 | upernet101)')
         parser.add_argument('--pretrained_seg', action='store_true', help='use pretrained semantic segmention model')
         parser.add_argument('--use_input_seg', action='store_true', help='use also the input semantic label to further train the semantic segmentation network')
-        parser.add_argument('--lambda_seg', type=float, default=10, help='lambda value to re-weight the semantic segmentation loss')
+        parser.add_argument('--lambda_seg', type=float, default=5, help='lambda value to re-weight the semantic segmentation loss')
         parser.add_argument('--gamma_seg', type=float, default=2, help='gamma value for the focal loss for semantic segmentation')
 
         self.initialized = True
