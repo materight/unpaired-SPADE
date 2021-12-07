@@ -7,7 +7,7 @@
 </div>
 
 ### Model Architecture
-An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data samples. It exploits a semantic segmentation network (from [CSAILVision's semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch)) to introduce a reconstruction loss over the semantic labels.
+An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data samples. It exploits a semantic segmentation network (from [CSAILVision's semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch)) to introduce a reconstruction loss over the semantic labels. Check to [presentation](./slides.pdf) for more details.
 
 
 <div align="center">
