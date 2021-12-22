@@ -6,7 +6,7 @@
   <img src="docs/images/treepond.gif" height="200"/>
 </div>
 
-### Model Architecture
+### Model architecture
 An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data samples. It exploits a semantic segmentation network (from [CSAILVision's semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch)) to introduce a reconstruction loss over the semantic labels. Check the [presentation](./slides.pdf) for more details.
 
 
@@ -15,7 +15,7 @@ An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data s
 </div>
 
 
-## Installation
+## Get started
 
 Clone this repo.
 ```bash
@@ -29,14 +29,14 @@ pip install -r requirements.txt
 ```
 
 
-## Dataset Preparation
+## Dataset preparation
 
 For COCO-Stuff, Cityscapes or ADE20K, the datasets can be downloaded and prepared following [SPADE](https://github.com/NVlabs/SPADE.git). 
 
 The ADE20K dataset used to test the model can be downloaded [here](http://data.csail.mit.edu/places/ADEchallenge/ADEChallengeData2016.zip) (from [MIT Scene Parsing BenchMark](http://sceneparsing.csail.mit.edu/)). After the download, unzip it inside the the `datasets/` directory. 
 
 
-## Testing Pre-trained Models
+## Testing pre-trained models
 
 Once the dataset is ready, the result images can be generated using a pre-trained model:
 
@@ -55,7 +55,7 @@ Use `--evaluate` to also compute FID score, mIoU and accuracy over the generated
 There are many other options that can be specified, please use `python test.py --help` to see them all.  
 
 
-## Training New Models
+## Training new models
 
 New models can be trained with the following command.
 
@@ -66,7 +66,7 @@ python train.py --name [experiment_name] --dataset_mode [dataset_mode] --dataroo
 You can use `python train.py --help` to see all the available options.
 
 
-## Available Options
+## Available options
 
 Besides the options from the original [SPADE](https://github.com/NVlabs/SPADE.git) repository, new options have been added:
 - `--evaluate`: use with `test.py` to compute also FID, mIoU and accuracy scores over the generated images.
@@ -79,7 +79,7 @@ Besides the options from the original [SPADE](https://github.com/NVlabs/SPADE.gi
 - `--gamma_seg`: gamma parameter for the semantic segmentation focal loss.
 
 
-## Code Structure
+## Code structure
 
 - `train.py`, `test.py`: the entry point for training and testing.
 - `trainers/pix2pix_trainer.py`: harnesses and reports the progress of training.
