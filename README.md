@@ -1,6 +1,11 @@
 # Unpaired Semantic Segmentation and Image Synthesis with SPADE and UPerNet
 
 <div align="center">
+  <img src="docs/images/results2.jpg" width="400" />
+</div>
+
+<br/>
+<div align="center">
   <img src="docs/images/ocean.gif" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="docs/images/treepond.gif" height="200"/>
