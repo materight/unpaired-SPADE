@@ -16,7 +16,7 @@ An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data s
 ### Model architecture
 
 <div align="center">
-  <img src="docs/images/new_model_full.png" width="750"/>
+  <img src="docs/images/new_model_full.png" width="800"/>
 </div>
 
 
