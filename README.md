@@ -1,19 +1,19 @@
 # Unpaired Semantic Segmentation and Image Synthesis with SPADE and UPerNet
 
+An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data samples. It exploits a semantic segmentation network (from [CSAILVision's semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch)) to introduce a reconstruction loss over the semantic labels. Check the [presentation](./slides.pdf) for more details.
+
 <div align="center">
-  <img src="docs/images/results2.jpg" width="400" />
+  <img src="docs/images/results2.jpg" width="450" />
 </div>
 
 <br/>
 <div align="center">
-  <img src="docs/images/ocean.gif" height="200" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/images/treepond.gif" height="200"/>
+  <img src="docs/images/ocean.gif" height="180" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/images/treepond.gif" height="180"/>
 </div>
 
 ### Model architecture
-An adaptation of [SPADE](https://github.com/NVlabs/SPADE.git) to unpaired data samples. It exploits a semantic segmentation network (from [CSAILVision's semantic segmentation](https://github.com/CSAILVision/semantic-segmentation-pytorch)) to introduce a reconstruction loss over the semantic labels. Check the [presentation](./slides.pdf) for more details.
-
 
 <div align="center">
   <img src="docs/images/new_model.png" height="250"/>
