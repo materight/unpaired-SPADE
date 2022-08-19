@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ## Dataset preparation
 
-For COCO-Stuff, Cityscapes or ADE20K, the datasets can be downloaded and prepared following [SPADE](https://github.com/NVlabs/SPADE.git). 
+For COCO-Stuff, Cityscapes or ADE20K, the datasets can be downloaded and prepared following [SPADE](https://github.com/NVlabs/SPADE#dataset-preparation). 
 
 The ADE20K dataset used to test the model can be downloaded [here](http://data.csail.mit.edu/places/ADEchallenge/ADEChallengeData2016.zip) (from [MIT Scene Parsing BenchMark](http://sceneparsing.csail.mit.edu/)). After the download, unzip it inside the the `datasets/` directory. 
 
